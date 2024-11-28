@@ -4,7 +4,7 @@ import datetime
 import tasks
 import datautils
 from utils import init_dl_program, name_with_datetime
-from cost import CoST
+from net import MFF_FTNet
 
 def save_checkpoint_callback(
     save_every=1,
@@ -36,11 +36,11 @@ if __name__ == '__main__':
     parser.add_argument('--classification', action="store_true", help='Whether to perform evaluation after training. if true:do not forcast')
     parser.add_argument('--kernels', type=int, nargs='+', default=[1, 2, 4, 8, 16, 32, 64, 128], help='The kernel sizes used in the mixture of AR expert layers')
     parser.add_argument('--alpha', type=float, default=0.0005, help='Weighting hyperparameter for loss function')
-    parser.add_argument('--depth', type=int, default=10, help='CoST layer num')
-    parser.add_argument('--momentum', type=float, default=0.9, help='CoST momentum')
-    parser.add_argument('--weight_decay', type=float, default=1e-4, help='CoST weight_decay')
-    parser.add_argument('--hidden_dim', type=int, default=64, help='CoST hidden_dim')
-    parser.add_argument('--dim', type=int, default=160, help='CoST hidden_dim')
+    parser.add_argument('--depth', type=int, default=10, help='MFF_FTNet layer num')
+    parser.add_argument('--momentum', type=float, default=0.9, help='MFF_FTNet momentum')
+    parser.add_argument('--weight_decay', type=float, default=1e-4, help='MFF_FTNet weight_decay')
+    parser.add_argument('--hidden_dim', type=int, default=64, help='MFF_FTNet hidden_dim')
+    parser.add_argument('--dim', type=int, default=160, help='MFF_FTNet hidden_dim')
     parser.add_argument('--ra', type=float, default=0.5, help='mask')
 
     args = parser.parse_args()
@@ -88,7 +88,7 @@ if __name__ == '__main__':
     
     t = time.time()
 
-    model = CoST(
+    model = MFF_FTNet(
         input_dims=train_data.shape[-1],
         kernels=args.kernels,
         alpha=args.alpha,
