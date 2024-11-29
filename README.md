@@ -11,9 +11,9 @@ The datasets can be obtained and put into `datasets/` folder in the following wa
 * [ETTm2 dataset](https://drive.google.com/drive/folders/1ZOYpTUa82_jCcxIdTmyr0LXQfvaM9vIy) placed at `datasets/ETTm2.csv`
 * [Weather dataset](https://drive.google.com/drive/folders/1ohGYWWohJlOlb2gsGTeEq3Wii2egnEPR) placed at `datasets/WTH.csv`
 ## Usage
-To train and evaluate MFF-FTNet on a dataset, run the script from the scripts folder: ```./scripts/model_ETT.sh``` 
+To train and evaluate MFF-FTNet on a dataset, run the script from the scripts folder: ```./scripts/model_ETT.sh``` or ```./scripts/model_WTH.sh``` 
 ## Acknowledgements
-The implementation ofMFF-FTNetCoST relies on resources from the following codebases and repositories, we thank the original authors for open-sourcing their work.
+The implementation of MFF-FTNet builds upon resources from the following codebases and repositories. We express our gratitude to the original authors for generously making their work available as open-source.
 * https://github.com/salesforce/CoST
 * https://github.com/xingyu617/SimTS_Representation_Learning
 
